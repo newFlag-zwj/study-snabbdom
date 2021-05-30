@@ -1,17 +1,22 @@
 import h from "./mysnabbdom/h";
 import patch from "./mysnabbdom/patch";
 
-const myVnode1 = h("ul", { key: 1 }, [
-  h("li", { key: 1 }, "111"),
-  h("li", { key: 2 }, "222"),
-  h("li", { key: 3 }, "333"),
-  h("li", { key: 4 }, "444"),
+const myVnode1 = h('ul', {}, [
+  h('li', { key: 'A' }, 'A'),
+  h('li', { key: 'B' }, 'B'),
+  h('li', { key: 'C' }, 'C'),
+  h('li', { key: 'D' }, 'D'),
+  h('li', { key: 'E' }, 'E')
 ]);
-const myVnode2 = h("ul", { key: 1 }, [
-  h("li", { key: 4 }, "4444"),
-  h("li", { key: 3 }, "3333"),
-  h("li", { key: 2 }, "2222"),
-  h("li", { key: 1 }, "1111"),
+const myVnode2 = h('ul', {}, [
+  h('li', { key: 'Q' }, 'Q'),
+  h('li', { key: 'T' }, 'T'),
+  h('li', { key: 'A' }, 'A'),
+  h('li', { key: 'B' }, 'B'),
+  h('li', { key: 'Z' }, 'Z'),
+  h('li', { key: 'C' }, 'C'),
+  h('li', { key: 'D' }, 'D'),
+  h('li', { key: 'E' }, 'E')
 ]);
 
 const container = document.getElementById("container");
