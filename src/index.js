@@ -1,15 +1,23 @@
-import h from './mysnabbdom/h'
-import patch from './mysnabbdom/patch'
+import h from "./mysnabbdom/h";
+import patch from "./mysnabbdom/patch";
 
-// const myVnode = h('h3', {}, '123')
-const myVnode = h('h3', {}, [
-  h('h5', {}, '111'),
-  h('h5', {}, '222'),
-  h('h5', {}, '333'),
-  h('h5', {}, '444')
-])
+const myVnode1 = h("ul", { key: 1 }, [
+  h("li", { key: 1 }, "111"),
+  h("li", { key: 2 }, "222"),
+  h("li", { key: 3 }, "333"),
+  h("li", { key: 4 }, "444"),
+]);
+const myVnode2 = h("ul", { key: 1 }, [
+  h("li", { key: 4 }, "4444"),
+  h("li", { key: 3 }, "3333"),
+  h("li", { key: 2 }, "2222"),
+  h("li", { key: 1 }, "1111"),
+]);
 
+const container = document.getElementById("container");
+const btn = document.getElementById("btn");
+patch(container, myVnode1);
 
-console.log(myVnode)
-const container = document.getElementById('container')
-patch(container, myVnode)
+btn.onclick = function () {
+  patch(myVnode1, myVnode2);
+};
